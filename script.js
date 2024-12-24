@@ -800,4 +800,6 @@ watercan().then(value=>{console.log(value);return room()})
   //jai 
   //wake 5 am - 2
   //gym  - 3
-  //office - 1
+  //office - 1 
+
+  //new items added
