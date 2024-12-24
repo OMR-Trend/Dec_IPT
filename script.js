@@ -571,33 +571,31 @@
 
 // arr.forEach((val, idx, accarr) => console.log(val, idx, accarr));
 
-//forin  - object loop and read 
-//syntax : 
+//forin  - object loop and read
+//syntax :
 //for(var_type var_name in obj_name){
-    //code
+//code
 //}
 
-var obj = {
- 
-    name : "sakthi",
-    city : "newyork",
-    country : "America"
+// var obj = {
 
-}
-for(var x in obj){
-  console.log(obj[x]);
-  
-   
-}
+//     name : "sakthi",
+//     city : "newyork",
+//     country : "America"
 
-//task 
-//o/p : 
-// name <=> sakthi 
-// city <=> newyork 
+// }
+// for(var x in obj){
+//   console.log(obj[x]);
+
+// }
+
+//task
+//o/p :
+// name <=> sakthi
+// city <=> newyork
 // country <=> america
 
-
-//forof - string loop and read 
+//forof - string loop and read
 
 //for(var_type var_name of str_name){
 
@@ -606,34 +604,200 @@ for(var x in obj){
 // let str = "java"
 // for(var x of str){
 //    console.log(x);
-   
+
 // }
 
-
 //MRF
-//Map,reduce,filter  
+//Map,reduce,filter
 
-//syntax: 
+//syntax:
 
-//var_name.Map((value,index,acctualarray)=>) 
+//var_name.Map((value,index,acctualarray)=>)
 
-   var num = [1,2,3,4,5,6,7,8,9,10]
-   var map = num.map((val,idx,accarr)=>accarr*2) 
-   console.log(map);
-   
-//reduce 
-//syntax: 
-//var_name.reduce((accumulator,value,index,acctualarray)) 
+//    var num = [1,2,3,4,5,6,7,8,9,10]
+//    var map = num.map((val,idx,accarr)=>accarr*2)
+//    console.log(map);
 
-var reduce = num.reduce((acc,val)=>acc+val,5) //5+1=6+2=8+3
-console.log(reduce); 
+// //reduce
+// //syntax:
+// //var_name.reduce((accumulator,value,index,acctualarray))
 
-//filter :  
-//syntax: 
+// var reduce = num.reduce((acc,val)=>acc+val,5) //5+1=6+2=8+3
+// console.log(reduce);
 
-//var_name.filter((value,index,acctualarray)=>) 
+// //filter :
+// //syntax:
 
-   var filter = num.filter((val,idx,accarr)=>val%2==0)
-   console.log(filter);
-   
+// //var_name.filter((value,index,acctualarray)=>)
 
+//    var filter = num.filter((val,idx,accarr)=>val%2==0)
+//    console.log(filter);
+
+// //this
+// var obj = {
+
+//      name:"sakthi",
+//      age : 23,
+//      details:function(){//local scope
+//       console.log(this.age);
+//      }
+
+// }
+// obj.details()
+
+// //template literals or string literals `${}`
+
+// var a = "hello"
+// var b = "vijay"
+// console.log(a+b+"how are you");
+// console.log(`${a} ${b} how are you!!!`)
+
+// //settimeout function
+// //1sec = 1000ms
+// setTimeout(()=>{
+//   console.log("Bomb blast");
+
+// },3000)
+
+//constructor :
+
+// function Bike(name, model, year) {
+//   //keys         value
+//   this.Bikename = name;
+//   this.Bikemodel = model;
+//   this.Bikeyear = year;
+// }
+// //object
+// const details = new Bike("yamaha", "Rx100", 1999);
+// console.log(details);
+
+// const details2 = new Bike("Duke", 390, 2020);
+// console.log(details2);
+
+//class
+
+// class Student {
+//   constructor(name, age, dep) {
+//     this.name = name;
+//     this.age = age;
+//     this.dep = dep;
+//   }
+
+//   details() {
+//     console.log(
+//       `the name is ${this.name} and the age is ${this.age} and dep ${this.dep}`
+//     );
+//   }
+// }
+
+// const stddetails = new Student("hari", 20, "BCA");
+// console.log(stddetails);
+// stddetails.details();
+
+//callback function :
+//passing a function into an another functions arguments is called callback function
+
+// function name1(){
+//   console.log("vijay");
+
+// }
+
+// function greet(x){
+//   x()
+//   console.log("good morning");
+
+// }
+// greet(name1)
+
+// function box1(x) {
+//   setTimeout(() => {
+//     console.log("box1");
+//     x();
+//   }, 4000);
+// }
+
+// function box2(y) {
+//   setTimeout(() => {
+//     console.log("box2");
+//     y();
+//   }, 500);
+// }
+
+// function box3(z) {
+//   setTimeout(() => {
+//     console.log("box3");
+//     z();
+//   }, 2000);
+// }
+
+// function box4() {
+//   setTimeout(() => {
+//     console.log("box4");
+//   }, 1000);
+// }
+//callback hell - its is a traditional concept to handle async code
+
+// box1(() => {
+//   box2(() => {
+//     box3(box4);
+//   });
+// });
+
+//promise , async and await
+
+//syntax :
+
+// new Promise((resolve,reject)=>{
+//async code
+// })
+
+//sakthi
+//watercan fill -2
+//room clean -3
+//trash out - 1
+
+//.then() => resolve
+//.catch() => reject
+
+
+
+
+function watercan() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("watercanfilled");
+    }, 2000);
+  });
+}
+
+function room() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("room cleaned");
+    }, 4000);
+  });
+}
+
+function trash() {
+
+  return new Promise((resolve,reject)=>{
+    setTimeout(() => {
+      resolve("trash kept outside");
+    }, 1000);
+
+  })
+  
+}
+
+watercan().then(value=>{console.log(value);return room()})
+           .then(value2 => {console.log(value2);return trash()})
+           .then(value3=>{console.log(value3);console.log("all task completed")})
+
+
+
+  //task 
+
+  //jai 
+  //wake 5 am - 2
+  //gym  - 3
+  //office - 1
